@@ -9,9 +9,10 @@ const ServerSettings = ({ id }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
     const url = id
-      ? `http://localhost:3001/api/settings/server-settings/${id}`
-      : `http://localhost:3001/api/settings/server-settings`;
+      ? `${BASE_URL}/api/settings/server-settings/${id}`
+      : `${BASE_URL}/api/settings/server-settings`;
 
     fetch(url)
       .then((response) => response.json())
